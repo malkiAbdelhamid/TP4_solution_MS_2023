@@ -45,3 +45,12 @@ spring:
             - RewritePath=/ms-bourse/(?<s>.*), /${s}
 
           uri: lb://ms-bourse
+
+        - id: route4
+          predicates:
+            - Path=/ms-formation-mysql/**
+          filters:
+            - RewritePath=/ms-formation-mysql/(?<s>.*), /${s}
+
+          uri: lb://ms-formation-mysql
+  
